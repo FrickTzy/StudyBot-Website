@@ -1,0 +1,146 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.outerContainer {
+    position: relative; /* Set position to relative to enable absolute positioning of dropdowns */
+    padding: 15px; /* Reduced padding for mobile */
+    border: 3px solid #ff9900;
+    background-color: #ffcc66;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Full width with some margins */
+    max-width: 600px; /* Maximum width for larger screens */
+    overflow: hidden; /* Prevents overflow */
+}
+
+.letterboxContainer {
+    display: flex;
+    flex-direction: column; /* Stack elements for mobile */
+    margin-bottom: 20px;
+}
+
+.letterboxInput {
+    width: 100%; /* Full width for input */
+    padding: 10px; /* Adjusted padding */
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.letterboxInput:focus {
+    border-color: #ff6600;
+}
+
+.generateBtn {
+    margin-top: 10px; /* Spacing for button below input */
+    padding: 10px 15px; /* Adjusted padding */
+    background-color: #ff9900;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.generateBtn:hover {
+    background-color: #ff6600;
+    transform: scale(1.05);
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 10px; /* Reduced gap */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.buttonWrapper {
+    position: relative; /* Set position relative for dropdowns */
+    display: flex;
+    align-items: center; /* Center buttons vertically */
+}
+
+.optionBtn, .dropdownBtn {
+    padding: 10px; /* Adjusted padding */
+    background-color: #ff9900;
+    color: white;
+    border: 2px solid #333;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    width: auto; /* Maintain width for buttons */
+}
+
+.optionBtn:hover, .dropdownBtn:hover {
+    background-color: #ff6600;
+    transform: scale(1.05);
+}
+
+.largeTextarea {
+    width: 100%; /* Full width for textarea */
+    height: 150px; /* Adjusted height */
+    padding: 10px; /* Adjusted padding */
+    font-size: 16px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.largeTextarea:focus {
+    border-color: #ff6600;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: absolute; /* Position absolutely relative to button wrapper */
+    background-color: white;
+    top: 120%; /* Position below the button */
+    left: 0; /* Align it to the left edge of the button */
+    border: 1px solid #ccc;
+    z-index: 1000; /* Keep it on top of other elements */
+    width: 100%; /* Full width of the button */
+    max-height: 200px; /* Limit height */
+    overflow-y: auto; /* Scroll if needed */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a slight shadow for better visibility */
+    display: none; /* Initially hidden */
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0; /* Highlight on hover */
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 600px) {
+    .letterboxContainer {
+        flex-direction: row; /* Horizontal layout on larger screens */
+    }
+    .letterboxInput {
+        flex-grow: 1; /* Input takes remaining space */
+        margin-right: 10px; /* Margin to the button */
+    }
+    .generateBtn {
+        margin-top: 0; /* Reset margin for larger screens */
+    }
+}

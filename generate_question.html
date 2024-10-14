@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Generator</title>
+    <link rel="stylesheet" href="generate_question_styles.css">
+</head>
+
+<body>
+    <div class="outerContainer">
+        <div class="letterboxContainer">
+            <input id="topicInput" type="text" class="letterboxInput" placeholder="Enter your topic here...">
+            <button id="generateButton" class="generateBtn">Generate</button>
+        </div>
+
+        <div class="buttonGroup">
+            <div class="buttonWrapper">
+                <button id="difficultyValue" class="optionBtn">Medium</button>
+                <button id="difficultyDropdown" class="dropdownBtn">&#9660;</button>
+            </div>
+            <div class="buttonWrapper">
+                <button id="quantityValue" class="optionBtn">10</button>
+                <button id="quantityDropdown" class="dropdownBtn">&#9660;</button>
+            </div>
+        </div>
+
+        <textarea id="optionalDescription" class="largeTextarea"
+            placeholder="Enter question description here"></textarea>
+    </div>
+    <script src="generate_question.js"></script>
+</body>
+
+</html>
