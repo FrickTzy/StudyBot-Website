@@ -2,6 +2,7 @@ const generateQuestionUrl = "https://studybotapi.pythonanywhere.com/api/generate
 const questionCharacterLengthLimit = 40;
 const choicesCharacterLengthLimit = 9;
 const withChoices = true;
+let currentlyGeneratingQuestion = false;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -38,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a topic before generating questions.');
             return;
         }
-        if(localStorage.getItem('currentlyGeneratingQuestion')){
+        if(currentlyGeneratingQuestion){
             alert("Already Generating, please wait!");
             return;
         }
-        localStorage.setItem('currentlyGeneratingQuestion', true);
+        currentlyGeneratingQuestion = true;
         const difficultyInput = document.getElementById('difficultyValue');
         const quantityInput = document.getElementById('quantityValue');
         const descriptionInput = document.getElementById('optionalDescription')
@@ -78,12 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             const newData = {"title": questionTopic, "questions": data}
             localStorage.setItem('generatedQuestionParams', JSON.stringify(newData));
+            currentlyGeneratingQuestion = false;
             window.location.href = 'index.html';
 
         } catch (error) {
             console.error('Error:', error);
             alert('An error occurred while generating questions.');
-            localStorage.setItem('currentlyGeneratingQuestion', false);
+            currentlyGeneratingQuestion = false;
         }
     });
 });
